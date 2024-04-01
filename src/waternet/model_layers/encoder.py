@@ -1,8 +1,8 @@
 import torch
 from torch import nn
-from waternet.basic_layers.res_blocks import MultiResBlock
-from waternet.basic_layers.multiplication_block import MultiplicationBlock
-from waternet.basic_layers.fully_connected import MiddleFullyConnected
+from ..basic_layers.res_blocks import MultiResBlock
+from ..basic_layers.multiplication_block import MultiplicationBlock
+from ..basic_layers.fully_connected import MiddleFullyConnected
 
 class EncoderLayer(nn.Module):
     """

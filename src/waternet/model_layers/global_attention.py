@@ -1,7 +1,7 @@
 import torch
 from torch import nn
 from torch.nn import functional as F
-from waternet.basic_layers.conv_blocks import ConvBlock
+from ..basic_layers.conv_blocks import ConvBlock
 
 """
 The Attention mechanism uses channelwise means and standard deviations, similar to SRM in https://arxiv.org/abs/2111.07624

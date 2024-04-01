@@ -1,9 +1,9 @@
 import torch
 from torch import nn
-from waternet.basic_layers.res_blocks import MultiResBlock
-from waternet.basic_layers.multiplication_block import MultiplicationBlock
-from waternet.basic_layers.conv_blocks import ConvBlock
-from waternet.basic_layers.fully_connected import MiddleFullyConnected
+from ..basic_layers.res_blocks import MultiResBlock
+from ..basic_layers.multiplication_block import MultiplicationBlock
+from ..basic_layers.conv_blocks import ConvBlock
+from ..basic_layers.fully_connected import MiddleFullyConnected
 
 class DecoderLayer(nn.Module):
     """
