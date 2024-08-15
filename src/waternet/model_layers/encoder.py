@@ -17,6 +17,10 @@ class EncoderLayer(nn.Module):
                  dtype=torch.bfloat16, device='cuda',
                  track_running_stats=False, affine=True):
         super().__init__()
+        self.decrease_conv = nn.Conv2d(
+            in_channels=num_channels, out_channels=num_channels, kernel_size=2,
+            padding=0, stride=2, dtype=dtype, device=device
+        )
         self.normalization_layers1 = nn.InstanceNorm2d(
             num_features=num_channels, device=device, dtype=dtype,
             track_running_stats=track_running_stats, affine=affine
@@ -35,10 +39,6 @@ class EncoderLayer(nn.Module):
                 min(7, max_kernel_size), min(5, max_kernel_size), min(3, max_kernel_size),
             ],
             padding_mode=padding_mode, dtype=dtype, device=device
-        )
-        self.decrease_conv = nn.Conv2d(
-            in_channels=num_channels, out_channels=num_channels, kernel_size=2,
-            padding=0, stride=2, dtype=dtype, device=device
         )
         self.multi_res_blocks = MultiResBlock(
             num_channels=num_channels, num_res_blocks=3, kernel_size=min(5, max_kernel_size),
