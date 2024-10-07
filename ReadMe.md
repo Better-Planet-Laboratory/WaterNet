@@ -1,3 +1,5 @@
+# Overview
+
 This model is based on ideas from UNet (https://arxiv.org/abs/1505.04597) and ResNet (https://arxiv.org/pdf/1512.03385.pdf)
 among others (we use instance normalizations, layers similar to GLUs, and additional skip connections).
 
@@ -13,7 +15,16 @@ so there are benefits there as well. Lastly, the applications that we had in min
 identifying where waterways should be taken into account for infrastructure, don't require us to be super precises,
 as we expect a human to actually investigate further, with this dataset as a guide of where you may have to look.
 
+# Usage Notes
 
 
-waternet.model contains the class for the waterway model. waternet.model_layers contains all the layers used directly in
-the waterway model. waternet.basic_layers has layers used to make the waternet.model_layers layers.
+* [waternet.model](src/waternet/model.py) contains the class for the waterway model.
+* [waternet.model_layers](src/waternet/model_layers) contains all the layers used directly in
+the waterway model.
+* [waternet.basic_layers](src/waternet/basic_layers) has layers used to make the waternet.model_layers layers.
+
+# Related Repositories
+
+[WaterNet Vectorize](https://github.com/Better-Planet-Laboratory/waterways_vectorize)
+
+[WaterNet Training and Evaluation](https://github.com/Better-Planet-Laboratory/WaterNet)
