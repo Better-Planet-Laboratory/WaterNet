@@ -58,21 +58,3 @@ class WaterwayModel(nn.Module):
             x = decoder(x, xo)
         x = self.fully_connected(x)
         return x
-
-
-if __name__ == '__main__':
-    from torchinfo import summary
-    device = 'cuda'
-    dtype = torch.bfloat16
-    num_channels = 10
-    side_len = 832
-    class_layer = WaterwayModel(
-        init_channels=num_channels, num_encoders=5, num_channels=16,
-        num_decoders=5, dtype=dtype, device=device
-    )
-    print(
-        summary(
-            model=class_layer, input_size=(1, num_channels, side_len, side_len), depth=10,
-            device=device, dtypes=[dtype], col_names=['kernel_size', 'input_size', 'output_size', 'num_params'],
-        )
-    )

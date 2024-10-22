@@ -17,6 +17,10 @@ so there are benefits there as well. Lastly, the applications that we had in min
 identifying where waterways should be taken into account for infrastructure, don't require us to be super precises,
 as we expect a human to actually investigate further, with this dataset as a guide of where you may have to look.
 
+
+# Installation
+
+
 # Usage Notes
 
 
@@ -49,6 +53,6 @@ where
 
 # Related Repositories
 
-[WaterNet Vectorize](https://github.com/Better-Planet-Laboratory/waterways_vectorize)
+ * [WaterNet Training and Evaluation](https://github.com/Better-Planet-Laboratory/WaterNet)
+ * [WaterNet Vectorize](https://github.com/Better-Planet-Laboratory/waterways_vectorize)
 
-[WaterNet Training and Evaluation](https://github.com/Better-Planet-Laboratory/WaterNet)
