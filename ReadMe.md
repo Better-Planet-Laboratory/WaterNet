@@ -19,6 +19,25 @@ as we expect a human to actually investigate further, with this dataset as a gui
 
 
 # Installation
+Installation requires pytorch.
+You may also want to install [WaterNet Training and Evaluation](https://github.com/Better-Planet-Laboratory/WaterNet_training_and_evaluation) and
+[WaterNet Vectorize](https://github.com/Better-Planet-Laboratory/WaterNet_vectorize).
+
+All code was prototyped using python 3.11.4 and pip 23.0.1.
+
+A python environment and version handler such as [pyenv](https://github.com/pyenv/pyenv) should make those easy to obtain.
+
+After getting your environment setup correctly, download this repository and use pip to install:
+
+```
+git clone https://github.com/Better-Planet-Laboratory/WaterNet.git
+cd WaterNet
+pip install .
+```
+
+or if you wish to edit to code
+
+``pip install -e .``
 
 
 # Usage Notes
@@ -53,6 +72,6 @@ where
 
 # Related Repositories
 
- * [WaterNet Training and Evaluation](https://github.com/Better-Planet-Laboratory/WaterNet)
- * [WaterNet Vectorize](https://github.com/Better-Planet-Laboratory/waterways_vectorize)
+ * [WaterNet Training and Evaluation](https://github.com/Better-Planet-Laboratory/WaterNet_training_and_evaluation)
+ * [WaterNet Vectorize](https://github.com/Better-Planet-Laboratory/WaterNet_vectorize)
 
