@@ -1,6 +1,6 @@
 # Overview
 
-This repository is associated with the forthcoming paper "Pierson, M. and Mehrabi, Z. 2024. Deep learning waterways for rural infrastructure development. arXiv.  Doi forthcoming." Please cite this work if using 
+This repository is associated with the forthcoming paper "Pierson, M. and Mehrabi, Z. 2024. Deep learning waterways for rural infrastructure development. arXiv." Please cite this paper and attribute the work if using the model or work.
 
 This model is based on ideas from UNet (https://arxiv.org/abs/1505.04597) and ResNet (https://arxiv.org/pdf/1512.03385.pdf)
 among others (we use instance normalizations, layers similar to GLUs, and additional skip connections). One of the unique aspects of this model is that we don't complete the UNet. That is to say, we use 5 encoders (decreasing the width and height of each image by a factor of two at each iteration), and we only use  4 decoders, optimizing storage while maintaining precision of raster outputs that are 20m globally.  These rasters are then vectorized by first connecting our waterways to the TDX-Hydro waterways using least cost pathing to connect disconnected segments, on top of which we employ a thinning and vectorization algorithm.
@@ -69,7 +69,7 @@ where
 
 MIT License
 
-Copyright (c) 2004 Matthew Pierson/Better Planet Laboratory
+Copyright (c) 2024 Matthew Pierson/Better Planet Laboratory
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
