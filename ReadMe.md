@@ -65,9 +65,7 @@ where
  * [WaterNet Training and Evaluation](https://github.com/Better-Planet-Laboratory/WaterNet_training_and_evaluation)
  * [WaterNet Vectorize](https://github.com/Better-Planet-Laboratory/WaterNet_vectorize)
 
-# License
-
-MIT License
+# MIT License
 
 Copyright (c) 2024 Matthew Pierson/Better Planet Laboratory
 
