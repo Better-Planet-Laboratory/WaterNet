@@ -1,21 +1,13 @@
 # Overview
 
-See paper.
+This repository is associated with the forthcoming paper "Pierson, Matthew., and Mehrabi, Zia. 2024. Deep learning waterways for rural infrastructure development. arXiv." Please cite this paper and attribute the work if using the model or work.
+
+The data outputs of this model (raster and vectorized versions) are stored and available under CC-BY-SA 4.0 from the following source: Pierson, Matthew., Mehrabi. Zia. 2024, WaterNet Outputs and Code, https://doi.org/10.7910/DVN/YY2XMG, Harvard Dataverse.
 
 This model is based on ideas from UNet (https://arxiv.org/abs/1505.04597) and ResNet (https://arxiv.org/pdf/1512.03385.pdf)
-among others (we use instance normalizations, layers similar to GLUs, and additional skip connections).
+among others (we use instance normalizations, layers similar to GLUs, and additional skip connections). One of the unique aspects of this model is that we don't complete the UNet. That is to say, we use 5 encoders (decreasing the width and height of each image by a factor of two at each iteration), and we only use  4 decoders, optimizing storage while maintaining precision of raster outputs that are 20m globally.  These rasters are then vectorized by first connecting our waterways to the TDX-Hydro waterways using least cost pathing to connect disconnected segments, on top of which we employ a thinning and vectorization algorithm.
 
-One of the more unique ideas in our model is that we don't complete the UNet (we have not seen this applied elsewhere,
-but would not be surprised if it has been used). That is to say, we use 5 encoders (decreasing the width and height by a factor of two at each iteration),
-and we only use 3 or 4 decoders (increasing the width and height by a factor of 2), so our final outputs 
-are 2 or 4 times more coarse than the input layers.
-
-There were various reasons to make this decision, one being that the training data, while very good, does not perfectly
-align with the training images, so having a coarser resolution allows more wiggle room there. From a data perspective,
-having data with 2 times less resolution requires roughly 4 times less storage, and 4 times less resolution requires 16 times less storage,
-so there are benefits there as well. Lastly, the applications that we had in mind while making this model, namely 
-identifying where waterways should be taken into account for infrastructure, don't require us to be super precises,
-as we expect a human to actually investigate further, with this dataset as a guide of where you may have to look.
+Notably, the model was trained across a diversity of hydrographic conditions using labels from the National Hydrography Dataset  (e.g. with an identifier for each water type, such as rivers, streams, lakes, ditches, intermittent, ephemeral, called the fcode),  in two steps, starting  with a larger training set of smaller context $1.5M grids (244 x 244 pixels),  and followed with a 10x decrease in training samples but  10x increase in context, $90K grids (832 x 832 pixels). We have found this two step approach to be a useful for making location predictions across a diversity of contexts and water way types, while at the same time minimizing evaluation time and maximizing speed and alignment of waterways network structures in the final product. We use a summed Binary Cross Entropy and Tanimoto loss weighted by waterway type. We effectively mask swamps, canals, intermittent lakes, ditches, and playas in training, with rivers and streams (intermittent, ephemeral and perennial) alongside perennial and perminant lakes, being our primary target (although we evaluate the model performance on all waterway types). Our input features includes 10 channels: the first four being transformed Sentinel-2 NRGB channels ($NRGB_t$), and the remaining 7 being $NDVI$, $NDWI$, Shifted Elevation ($E_S$), Elevation x-delta ($\Delta_x E$), Elevation y-delta ($\Delta_y E$), elevation gradient ($\nabla E$).
 
 
 # Installation
@@ -74,4 +66,3 @@ where
 
  * [WaterNet Training and Evaluation](https://github.com/Better-Planet-Laboratory/WaterNet_training_and_evaluation)
  * [WaterNet Vectorize](https://github.com/Better-Planet-Laboratory/WaterNet_vectorize)
-
