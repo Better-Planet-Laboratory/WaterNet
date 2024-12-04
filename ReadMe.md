@@ -1,8 +1,7 @@
 # Overview
 
-This repository is associated with the forthcoming paper "Pierson, Matthew., and Mehrabi, Zia. 2024. Mapping waterways worldwide with deep learning. arXiv" Please cite this paper and attribute the work if using the model or work.
-
-The data outputs of this model (raster and vectorized versions) are stored and available under CC-BY-SA 4.0 from the following source: Pierson, Matthew., Mehrabi. Zia. 2024, WaterNet Outputs and Code, https://doi.org/10.7910/DVN/YY2XMG, Harvard Dataverse.
+This repository is associated with the forthcoming paper "Pierson, Matthew., and Mehrabi, Zia. 2024. Mapping waterways worldwide with deep learning. arXiv.  	
+https://doi.org/10.48550/arXiv.2412.00050". Please do cite this paper and attribute the work if using the model or work. The data outputs of this model (raster and vectorized versions) are also stored and available from the following source: Pierson, Matthew., Mehrabi. Zia. 2024, WaterNet Outputs and Code, https://doi.org/10.7910/DVN/YY2XMG, Harvard Dataverse.
 
 This model is based on ideas from UNet (https://arxiv.org/abs/1505.04597) and ResNet (https://arxiv.org/pdf/1512.03385.pdf)
 among others (we use instance normalizations, layers similar to GLUs, and additional skip connections). One of the unique aspects of this model is that we don't complete the UNet. That is to say, we use 5 encoders (decreasing the width and height of each image by a factor of two at each iteration), and we only use  4 decoders, optimizing storage while maintaining precision of raster outputs that are 20m globally.  These rasters are then vectorized by first connecting our waterways to the TDX-Hydro waterways using least cost pathing to connect disconnected segments, on top of which we employ a thinning and vectorization algorithm.
@@ -66,3 +65,30 @@ where
 
  * [WaterNet Training and Evaluation](https://github.com/Better-Planet-Laboratory/WaterNet_training_and_evaluation)
  * [WaterNet Vectorize](https://github.com/Better-Planet-Laboratory/WaterNet_vectorize)
+
+
+# Citations
+
+```yaml
+@misc{pierson2024mappingwaterwaysworldwidedeep,
+      title={Mapping waterways worldwide with deep learning}, 
+      author={Matthew Pierson and Zia Mehrabi},
+      year={2024},
+      eprint={2412.00050},
+      archivePrefix={arXiv},
+      primaryClass={cs.CV},
+      url={https://arxiv.org/abs/2412.00050}, 
+}
+```
+
+```yaml
+@data{DVN/YY2XMG_2024,
+author = {Pierson, Matthew and Mehrabi, Zia},
+publisher = {Harvard Dataverse},
+title = {{WaterNet Outputs and Code}},
+year = {2024},
+version = {V1},
+doi = {10.7910/DVN/YY2XMG},
+url = {https://doi.org/10.7910/DVN/YY2XMG}
+}
+```
